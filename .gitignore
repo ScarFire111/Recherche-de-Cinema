@@ -1,0 +1,19 @@
+
+dataset/
+datasets/
+data/
+
+dataset/ml-32m/
+dataset/ml-32m/*.csv
+
+*.csv
+
+
+
+
+
+# Env files
+.env
+.env.local
+
+

@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap');
+
+
+.hero-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;  
+}
+
+
+.Iframecontainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  z-index: 0;           
+  object-fit: cover;     
+}
+
+
+
+.Home {
+  position: fixed;        
+  top: 20px;
+  right: 40px;
+  z-index: 10;           
+  display: flex;
+  gap: 15px;
+}
+
+.Home button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(10px); 
+  font-family: 'Montserrat', sans-serif;  /* modern button font */
+  transition: all 0.3s ease;
+}
+
+.Home button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+/* Optional: stack buttons on mobile */
+@media screen and (max-width: 768px) {
+  .login {
+    flex-direction: column;
+    top: 15px;
+    right: 15px;
+    gap: 10px;
+  }
+}
+
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+/* ===== Mobile responsiveness for title ===== */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    left: 20px;
+  }
+}
