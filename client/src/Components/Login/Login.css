@@ -124,3 +124,20 @@
   background-color: #314237;
   text-decoration: none;
 }
+/* Error styling */
+.error-input {
+  border-bottom: 2px solid #ff4444 !important;
+}
+
+.error-message {
+  color: #ff4444;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Optional: Add red border to input groups with errors */
+.input-group:has(.error-input) {
+  border-bottom: 2px solid #ff4444 !important;
+}

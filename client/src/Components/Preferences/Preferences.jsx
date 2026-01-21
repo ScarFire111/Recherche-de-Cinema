@@ -13,6 +13,7 @@ const Preferences = () => {
 
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [favoriteMovies, setFavoriteMovies] = useState(['', '', '']);
+  const [errors, setErrors] = useState({});
 
   const handleGenreToggle = (genre) => {
     if (selectedGenres.includes(genre)) {
@@ -22,19 +23,59 @@ const Preferences = () => {
         setSelectedGenres([...selectedGenres, genre]);
       }
     }
+    // Clear genre error when user selects something
+    if (errors.genres) {
+      setErrors({...errors, genres: ''});
+    }
   };
 
   const handleMovieChange = (index, value) => {
     const newMovies = [...favoriteMovies];
     newMovies[index] = value;
     setFavoriteMovies(newMovies);
+    // Clear movie error when user types something
+    if (errors.movies && value.trim()) {
+      const newErrors = {...errors};
+      delete newErrors.movies;
+      setErrors(newErrors);
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    // Validate at least 1 genre selected
+    if (selectedGenres.length === 0) {
+      newErrors.genres = 'Please select at least one genre';
+    }
+    
+    // Validate at least 1 movie entered
+    const hasMovie = favoriteMovies.some(movie => movie.trim() !== '');
+    if (!hasMovie) {
+      newErrors.movies = 'Please enter at least one favorite movie';
+    }
+    
+    return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    const validationErrors = validateForm();
+    
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    
+    // Clear errors if validation passes
+    setErrors({});
+    
     console.log('Selected genres:', selectedGenres);
     console.log('Favorite movies:', favoriteMovies);
-    navigate('/');
+    
+    // Navigate to home page
+    navigate('/home');
   };
 
   return (
@@ -53,7 +94,7 @@ const Preferences = () => {
             {/* Favorite Genres */}
             <div style={{ marginBottom: '30px' }}>
               <h4 style={{ fontSize: '24px', color: '#333', marginBottom: '15px', textAlign: 'center' }}>
-                Favorite Genres (choose up to 5)
+                Favorite Genres (choose at least 1, up to 5)
               </h4>
               <div style={{ 
                 display: 'flex', 
@@ -69,7 +110,7 @@ const Preferences = () => {
                     style={{
                       background: selectedGenres.includes(genre) ? '#314237' : 'rgba(180, 180, 180, 0.5)',
                       color: selectedGenres.includes(genre) ? '#d4b6b6' : '#333',
-                      border: '2px solid #314237',
+                      border: selectedGenres.includes(genre) ? '2px solid #314237' : '2px solid #666',
                       borderRadius: '8px',
                       padding: '8px 15px',
                       fontSize: '18px',
@@ -93,6 +134,11 @@ const Preferences = () => {
                   </button>
                 ))}
               </div>
+              {errors.genres && (
+                <p style={{ textAlign: 'center', color: '#ff4444', fontSize: '16px', fontWeight: 'bold' }}>
+                  {errors.genres}
+                </p>
+              )}
               <p style={{ textAlign: 'center', color: '#666', fontSize: '18px' }}>
                 Selected: {selectedGenres.length}/5
               </p>
@@ -101,23 +147,29 @@ const Preferences = () => {
             {/* Favorite Movies */}
             <div style={{ marginBottom: '30px' }}>
               <h4 style={{ fontSize: '24px', color: '#333', marginBottom: '15px', textAlign: 'center' }}>
-                Favorite Movies
+                Favorite Movies (at least 1)
               </h4>
               {favoriteMovies.map((movie, index) => (
                 <div className="input-group" key={index} style={{ marginBottom: '20px' }}>
                   <input
                     type="text"
-                    placeholder={`Favorite movie #${index + 1}`}
+                    placeholder={`Favorite movie #${index + 1} ${index === 0 ? '(required)' : ''}`}
                     value={movie}
                     onChange={(e) => handleMovieChange(index, e.target.value)}
+                    required={index === 0}
                   />
                   <span className="icon">🎬</span>
                 </div>
               ))}
+              {errors.movies && (
+                <p style={{ textAlign: 'center', color: '#ff4444', fontSize: '16px', fontWeight: 'bold' }}>
+                  {errors.movies}
+                </p>
+              )}
             </div>
 
             {/* Submit Button */}
-            <button type="submit" className="login-button" style={{ width: '100%', height:' 80 px', padding:'0px'}}>
+            <button type="submit" className="login-button" style={{ width: '100%' }}>
               Save & Continue
             </button>
           </form>
