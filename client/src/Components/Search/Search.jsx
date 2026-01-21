@@ -1,4 +1,3 @@
-// src/Components/Search/Search.jsx
 import React from 'react';
 import './Search.css';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +16,7 @@ const Search = () => {
         <button className="back-btn" onClick={() => navigate('/home')}>
           ← Back
         </button>
-        <h1 className="search-title">Search</h1>
+        <input type="text" placeholder="Search" className="Searchtext"/>
       </nav>
       
       <div className="search-content">

@@ -6,7 +6,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Add logout logic here if needed
+
     navigate('/login');
   };
 
@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <div className="twin-peaks-home">
-      {/* Twin Peaks Background */}
+   
       <div className="tp-background">
         <div className="tp-red-curtain left"></div>
         <div className="tp-red-curtain right"></div>
@@ -24,7 +24,7 @@ const Home = () => {
         <div className="tp-black-lodge"></div>
       </div>
 
-      {/* Navigation Bar */}
+    
       <nav className="tp-navbar">
         <div className="tp-nav-left">
           <h1 className="tp-logo">
@@ -43,7 +43,7 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* Main Content - Twin Peaks themed */}
+  
       <main className="tp-main-content">
         <div className="tp-welcome-container">
           <h2 className="tp-welcome-title">Welcome to the Black Lodge</h2>
@@ -73,13 +73,8 @@ const Home = () => {
         </div>
       </main>
 
-      {/* Footer with Twin Peaks elements */}
-      <footer className="tp-footer">
-        <div className="tp-chevron-pattern"></div>
-        <p className="tp-footer-text">
-          A damn fine cinematic experience • That gum you like is coming back in style
-        </p>
-      </footer>
+
+      
     </div>
   );
 };
