@@ -1,127 +1,85 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import './Home.css';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
-  const videoRef = useRef(null);
+  const navigate = useNavigate();
 
-  // Try to autoplay the video
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.log("Video autoplay failed:", error);
-      });
-    }
-  }, []);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log('Searching for:', searchQuery);
-    // Add search logic here
+  const handleLogout = () => {
+    // Add logout logic here if needed
+    navigate('/login');
   };
 
-  const toggleSearch = () => {
-    setIsSearchVisible(!isSearchVisible);
+  const handleSearch = () => {
+    navigate('/search');
   };
 
   return (
-    <div className="home-container">
-      {/* Background Video - The Matrix clip (safe for work) */}
-      <video
-        ref={videoRef}
-        className="home-background-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source 
-          src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-grid-5382-large.mp4" 
-          type="video/mp4" 
-        />
-        {/* Fallback image if video doesn't load */}
-        <img 
-          src="https://images.unsplash.com/photo-1489599809516-9827b6d1cf13?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-          alt="Cinema background" 
-        />
-      </video>
+    <div className="twin-peaks-home">
+      {/* Twin Peaks Background */}
+      <div className="tp-background">
+        <div className="tp-red-curtain left"></div>
+        <div className="tp-red-curtain right"></div>
+        <div className="tp-woods"></div>
+        <div className="tp-black-lodge"></div>
+      </div>
 
-      {/* Dark overlay for better text visibility */}
-      <div className="video-overlay"></div>
-
-      {/* Navbar */}
-      <nav className="home-navbar">
-        <div className="navbar-left">
-          <h1 className="navbar-logo">🎬 MovieFinder</h1>
+      {/* Navigation Bar */}
+      <nav className="tp-navbar">
+        <div className="tp-nav-left">
+          <h1 className="tp-logo">
+            Recherche de Cinéma
+            <span className="tp-logo-sub">Twin Peaks Edition</span>
+          </h1>
         </div>
-        <div className="navbar-center">
-          {isSearchVisible && (
-            <form className="navbar-search-form" onSubmit={handleSearch}>
-              <input
-                type="text"
-                placeholder="Search movies, actors, directors..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="navbar-search-input"
-                autoFocus
-              />
-              <button type="submit" className="navbar-search-submit">
-                🔍
-              </button>
-            </form>
-          )}
-        </div>
-        <div className="navbar-right">
-          <button className="navbar-btn" onClick={toggleSearch}>
+        
+        <div className="tp-nav-right">
+          <button className="tp-nav-btn search-btn" onClick={handleSearch}>
             🔍 Search
           </button>
-          <button className="navbar-btn">👤 Profile</button>
-          <button className="navbar-btn">🚪 Logout</button>
+          <button className="tp-nav-btn logout-btn" onClick={handleLogout}>
+            🚪 Logout
+          </button>
         </div>
       </nav>
 
-      {/* Main content with movie-themed interactive elements */}
-      <div className="home-main-content">
-        <h1 className="main-title">Discover Cinematic Magic</h1>
-        <p className="main-subtitle">Find movies that speak to your soul</p>
-        
-        {/* Interactive movie elements */}
-        <div className="interactive-elements">
-          <div className="floating-movie">
-            <span className="movie-icon">🎬</span>
-            <p className="movie-tag">Action</p>
+      {/* Main Content - Twin Peaks themed */}
+      <main className="tp-main-content">
+        <div className="tp-welcome-container">
+          <h2 className="tp-welcome-title">Welcome to the Black Lodge</h2>
+          <div className="tp-welcome-message">
+            <p className="tp-quote">
+              "Through the darkness of future past,<br />
+              The magician longs to see.<br />
+              One chants out between two worlds...<br />
+              <span className="tp-fire">Fire walk with me.</span>"
+            </p>
           </div>
-          <div className="floating-movie">
-            <span className="movie-icon">❤️</span>
-            <p className="movie-tag">Romance</p>
-          </div>
-          <div className="floating-movie">
-            <span className="movie-icon">👻</span>
-            <p className="movie-tag">Horror</p>
-          </div>
-          <div className="floating-movie">
-            <span className="movie-icon">🚀</span>
-            <p className="movie-tag">Sci-Fi</p>
-          </div>
-        </div>
 
-        {/* Quick stats */}
-        <div className="quick-stats">
-          <div className="stat-card">
-            <h3>10,000+</h3>
-            <p>Movies</p>
-          </div>
-          <div className="stat-card">
-            <h3>5,000+</h3>
-            <p>Actors</p>
-          </div>
-          <div className="stat-card">
-            <h3>50+</h3>
-            <p>Genres</p>
+          <div className="tp-instructions">
+            <div className="tp-instruction">
+              <div className="tp-icon">🦉</div>
+              <p>Click <strong>Search</strong> to begin your cinematic journey</p>
+            </div>
+            <div className="tp-instruction">
+              <div className="tp-icon">☕</div>
+              <p>Remember: The owls are not what they seem</p>
+            </div>
+            <div className="tp-instruction">
+              <div className="tp-icon">🎬</div>
+              <p>Find movies that speak to your soul</p>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
+
+      {/* Footer with Twin Peaks elements */}
+      <footer className="tp-footer">
+        <div className="tp-chevron-pattern"></div>
+        <p className="tp-footer-text">
+          A damn fine cinematic experience • That gum you like is coming back in style
+        </p>
+      </footer>
     </div>
   );
 };
