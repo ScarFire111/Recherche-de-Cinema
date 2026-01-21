@@ -95,3 +95,32 @@
   transform: scale(1.05);
   background-color: #25332a;
 }
+
+
+.signup-link {
+  text-align: center;
+  margin-top: 25px;
+  color: #333;
+  font-size: 22px;
+}
+
+.signup-link p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.signup-button {
+  color: #314237;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.signup-button:hover {
+  color: #d4b6b6;
+  background-color: #314237;
+  text-decoration: none;
+}

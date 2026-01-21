@@ -30,6 +30,12 @@ const TwinPeaksLogin = () => {
               Login
             </button>
           </form>
+          
+          <div className="signup-link">
+            <p>
+              Don't have an account? <a href="/signup" className="signup-button">Sign Up</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
