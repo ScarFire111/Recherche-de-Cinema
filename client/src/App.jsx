@@ -1,7 +1,8 @@
 import './App.css';
 import Landing from './Components/Landing/Landing';
 import Login from './Components/Login/Login';
-import Signup from './Components/Signup/Signup'; // This will work now
+import Signup from './Components/Signup/Signup';
+import Preferences from './Components/Preferences/Preferences'; // Add this import
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/preferences" element={<Preferences />} /> {/* Add this route */}
       </Routes>
     </Router>
   );
