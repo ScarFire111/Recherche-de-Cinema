@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState('');
 
   const handleLogout = () => {
+    // Add logout logic here if needed
     navigate('/login');
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate('/search', { state: { query: searchQuery } });
-    }
+  const handleSearch = () => {
+    navigate('/search');
   };
 
   return (
@@ -36,23 +33,10 @@ const Home = () => {
           </h1>
         </div>
         
-        {/* Centered Search Bar */}
-        <div className="tp-nav-center">
-          <form className="tp-search-form" onSubmit={handleSearch}>
-            <input
-              type="text"
-              placeholder="Search through the darkness..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="tp-search-input"
-            />
-            <button type="submit" className="tp-search-btn">
-              🔍
-            </button>
-          </form>
-        </div>
-        
         <div className="tp-nav-right">
+          <button className="tp-nav-btn search-btn" onClick={handleSearch}>
+            🔍 Search
+          </button>
           <button className="tp-nav-btn logout-btn" onClick={handleLogout}>
             🚪 Logout
           </button>
@@ -75,7 +59,7 @@ const Home = () => {
           <div className="tp-instructions">
             <div className="tp-instruction">
               <div className="tp-icon">🦉</div>
-              <p>Use the search bar above to find movies</p>
+              <p>Click <strong>Search</strong> to begin your cinematic journey</p>
             </div>
             <div className="tp-instruction">
               <div className="tp-icon">☕</div>
@@ -83,7 +67,7 @@ const Home = () => {
             </div>
             <div className="tp-instruction">
               <div className="tp-icon">🎬</div>
-              <p>Discover surreal cinematic experiences</p>
+              <p>Find movies that speak to your soul</p>
             </div>
           </div>
         </div>
