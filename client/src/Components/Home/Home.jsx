@@ -72,7 +72,7 @@ const Home = () => {
           </div>
         </div>
       </main>
-
+{/*wallahi comments that have been commented */}
       {/* Footer with Twin Peaks elements */}
       <footer className="tp-footer">
         <div className="tp-chevron-pattern"></div>
