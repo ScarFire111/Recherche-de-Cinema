@@ -7,11 +7,14 @@
   position: relative;
   overflow: hidden;
   font-family: 'Cormorant Garamond', serif;
+  background:#5a3921;
   color: #e8d8c8;
+
+  
 }
 
-/* Twin Peaks Background */
 .tp-background {
+  
   position: fixed;
   top: 0;
   left: 0;
@@ -25,10 +28,8 @@
   top: 0;
   width: 30%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    #8b0000 0%, 
-    #a00000 50%, 
-    #8b0000 100%);
+  background:url(../../../assets/450416.jpeg);
+  background-size:relative;
   box-shadow: 
     inset 0 0 100px rgba(0, 0, 0, 0.8),
     0 0 100px rgba(139, 0, 0, 0.5);
@@ -43,6 +44,8 @@
 
 .tp-red-curtain.right {
   right: 0;
+  background:url(../../../assets/images-w1400.jpg);
+  background-size:cover;
   transform: skewX(5deg);
   transform-origin: top right;
   border-left: 3px solid #5a0000;
@@ -111,6 +114,7 @@
   border-bottom: 3px solid #8b0000;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
+  
 }
 
 .tp-nav-left {
@@ -120,7 +124,7 @@
 
 .tp-logo {
   font-family: 'Cinzel', serif;
-  font-size: 24px;
+  font-size: 28px;
   color: #e8d8c8;
   margin: 0;
   font-weight: 600;
@@ -132,7 +136,7 @@
 
 .tp-logo-sub {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: #8b0000;
@@ -148,7 +152,7 @@
 .tp-nav-btn {
   padding: 12px 24px;
   font-family: 'Cinzel', serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
   border: none;
@@ -187,7 +191,7 @@
 /* Main Content */
 .tp-main-content {
   position: relative;
-  height: calc(100vh - 140px);
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,7 +214,7 @@
 
 .tp-welcome-title {
   font-family: 'Cinzel', serif;
-  font-size: 36px;
+  font-size: 40px;
   color: #e8d8c8;
   margin-bottom: 30px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
@@ -227,7 +231,7 @@
 
 .tp-quote {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
+  font-size: 27px;
   line-height: 1.8;
   margin: 0;
   font-style: italic;
@@ -274,7 +278,7 @@
 
 .tp-instruction p {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 25px;
   color: #e8d8c8;
   margin: 0;
   text-align: left;
@@ -286,17 +290,7 @@
   font-weight: 700;
 }
 
-/* Footer */
-.tp-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(26, 15, 10, 0.95);
-  padding: 15px 0;
-  text-align: center;
-  z-index: 100;
-  border-top: 2px solid #8b0000;
-}
+
 
 .tp-chevron-pattern {
   height: 4px;
@@ -312,7 +306,7 @@
 
 .tp-footer-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
+  font-size: 18px;
   color: rgba(232, 216, 200, 0.7);
   margin: 0;
   font-style: italic;

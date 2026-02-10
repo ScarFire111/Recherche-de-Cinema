@@ -3,7 +3,7 @@
 .login-container {
   width: 100vw;
   height: 100vh;
-  
+  position: relative;
 
   display: flex;
   justify-content:center;
@@ -18,11 +18,10 @@
 
 .content-wrapper {
   display: flex;
-  bottom:100px;
-  width: 100%;
+  
+  width: 90%; 
   z-index: 10;
   margin-left:0;
-  
 }
 
 
@@ -34,12 +33,10 @@
   background-color: rgba(180, 180, 180, 0.9); 
   padding: 50px 40px;
   border-radius: 25px;
-  width: 400px;
+  width: 700px;
   box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.6);
   margin-top: 50px; 
   margin-right:50px;
-  display:flex;
-  flex-direction:left;
 }
 
 .card-header h3 {

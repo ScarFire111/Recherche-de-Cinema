@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Container */
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: url('../../../assets/login1bg.jpg') no-repeat center center;
+  background-size: cover;
+  font-family: 'Indie Flower', cursive;
+  overflow: hidden;
+  border: none;
+}
+
+/* Card wrapper */
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10vh;
+  z-index: 10;
+}
+
+/* Preferences Card */
+.login-card {
+  background-color: rgba(180, 180, 180, 0.9);
+  padding: 40px 35px;
+  border-radius: 25px;
+  width: 500px;
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-header h3 {
+  font-size: 42px;
+  color: #222;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.underline {
+  height: 5px;
+  background: #000;
+  width: 180px;
+  margin: -5px auto 25px auto;
+  transform: rotate(-4deg);
+}
+
+/* Subtitles */
+.card-header p {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+/* Genre buttons */
+.genre-button {
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 18px;
+  font-family: 'Indie Flower', cursive;
+  cursor: pointer;
+  border: 2px solid #666;
+  transition: all 0.3s ease;
+}
+
+.genre-button.selected {
+  background: #314237;
+  color: #d4b6b6;
+  border: 2px solid #314237;
+}
+
+.genre-button:hover:not(.selected) {
+  background: rgba(49, 66, 55, 0.3);
+}
+
+/* Input groups for favorite movies */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #666;
+}
+
+.input-group input {
+  background: transparent;
+  border: none;
+  width: 100%;
+  padding: 10px 5px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 22px;
+  outline: none;
+}
+
+.input-group .icon {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 20px;
+}
+
+/* Submit button */
+.login-button {
+  background-color: #314237;
+  color: #d4b6b6;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+  background-color: #25332a;
+}
+
+/* Error messages */
+.error-message {
+  color: #ff4444;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.input-group:has(.error-input) {
+  border-bottom: 2px solid #ff4444 !important;
+}
+
+/* Selected genres counter */
+.genre-counter {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  margin-top: 5px;
+}
